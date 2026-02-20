@@ -32,6 +32,10 @@ jobs:
           java -jar artifacts/app-ibank.jar -P:profile=test &
           sleep 10
 
+      - name: Check SUT is running
+        run: |
+          curl -f http://localhost:9999 || exit 1
+
       - name: Install Chromium
         run: |
           sudo apt-get update
