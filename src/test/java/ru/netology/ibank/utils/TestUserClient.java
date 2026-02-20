@@ -16,9 +16,8 @@ public class TestUserClient {
                 .baseUri(BASE_URL)
                 .contentType("application/json")
                 .body(jsonBody)
-                .post("/system/users");  // обрати внимание: не /api/system/users, а /system/users
+                .post("/system/users");
 
-        // Печатаем ответ для отладки
         System.out.println("🔵 Создание пользователя: " + login);
         System.out.println("🔵 Статус ответа: " + response.getStatusCode());
         System.out.println("🔵 Тело ответа: " + response.getBody().asString());

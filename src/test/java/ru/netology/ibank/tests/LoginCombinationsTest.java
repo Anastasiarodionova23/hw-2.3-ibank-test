@@ -68,7 +68,7 @@ public class LoginCombinationsTest {
         String validLogin = "user" + uniqueId + "@bank.ru";
         String validPassword = "Pass" + uniqueId;
 
-        // Шаг 1: Создаём пользователя через тестовый режим (если нужно)
+        // Шаг 1: Создаём пользователя через тестовый режим
         if (data.userExists) {
             TestUserClient.createTestUser(validLogin, validPassword, data.status);
             try {

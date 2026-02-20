@@ -9,7 +9,6 @@ import java.time.Duration;
 public class LoginPage {
     private WebDriver driver;
 
-    // Локаторы (подставь свои селекторы из проекта)
     private By loginInput = By.cssSelector("[data-test-id='login'] input");
     private By passwordInput = By.cssSelector("[data-test-id='password'] input");
     private By submitButton = By.cssSelector("[data-test-id='action-login']");
