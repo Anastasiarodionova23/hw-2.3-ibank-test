@@ -8,11 +8,12 @@
 ### Технологии
 - Java 11
 - JUnit 5
-- REST-assured
+- REST-assured (API-тесты)
+- Selenium WebDriver (UI-тесты)
 - Gson
 - Gradle
 
-### Запуск приложения
+### Запуск приложения (SUT)
 Перед запуском тестов необходимо запустить SUT в тестовом режиме:
 
 ```bash
@@ -21,6 +22,14 @@
 
 ### Приложение будет доступно по адресу:
 http://localhost:9999
+
+## Запуск тестов
+### Запустить все тесты
+./gradlew clean test
+### Запустить только UI-тесты для входа
+./gradlew test --tests LoginCombinationsTest
+### Посмотреть отчет 
+open build/reports/tests/test/index.html
 
 ### Оценка времени тестирования:
 ### Ручное тестирование (80 минут) 
