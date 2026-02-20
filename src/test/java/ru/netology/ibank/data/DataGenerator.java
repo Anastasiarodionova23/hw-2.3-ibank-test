@@ -21,23 +21,23 @@ public class DataGenerator {
 
     private DataGenerator() {}
 
-    public static String generateLogin() {
-        return faker.name().username();
-    }
-
-    public static String generatePassword() {
-        return faker.internet().password();
-    }
-
     public static RegistrationInfo generateActiveUser() {
-        return new RegistrationInfo(generateLogin(), generatePassword(), "active");
+        return new RegistrationInfo(
+                faker.name().username(),
+                faker.internet().password(),
+                "active"
+        );
     }
 
     public static RegistrationInfo generateBlockedUser() {
-        return new RegistrationInfo(generateLogin(), generatePassword(), "blocked");
+        return new RegistrationInfo(
+                faker.name().username(),
+                faker.internet().password(),
+                "blocked"
+        );
     }
 
-    public static RegistrationInfo registerUser(RegistrationInfo user) {
+    public static void registerUser(RegistrationInfo user) {
         given()
                 .spec(requestSpec)
                 .body(user)
@@ -45,7 +45,6 @@ public class DataGenerator {
                 .post("/api/system/users")
                 .then()
                 .statusCode(200);
-        return user;
     }
 
     @Value
