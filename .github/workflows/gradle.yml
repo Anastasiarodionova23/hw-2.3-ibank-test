@@ -22,15 +22,16 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
-      - name: Download SUT
+      - name: Check artifacts
         run: |
-          mkdir -p artifacts
-          curl -L -o artifacts/app-ibank.jar https://github.com/netology-code/hw-2.3-ibank-test/raw/main/artifacts/app-ibank.jar
+          ls -la artifacts/
+          file artifacts/app-ibank.jar
 
       - name: Start SUT
         run: |
           java -jar artifacts/app-ibank.jar -P:profile=test &
           sleep 10
+          ps aux | grep java
 
       - name: Check SUT is running
         run: |
